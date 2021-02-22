@@ -1,0 +1,23 @@
+{
+  "name": "gita-help",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BOHS-CodingClub/gita-help.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/BOHS-CodingClub/gita-help/issues"
+  },
+  "homepage": "https://github.com/BOHS-CodingClub/gita-help#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
