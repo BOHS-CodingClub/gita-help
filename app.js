@@ -4,6 +4,7 @@ import routes from './routes/index.js';
 import path from 'path';
 import http from 'http';
 import { Server } from 'socket.io';
+import mongoose from 'mongoose';
 
 const __dirname = path.resolve(path.dirname(''));
 
@@ -16,6 +17,13 @@ app.use('/api', routes);
 
 const server = app.listen(process.env.PORT || port, () => {
     console.log(`App listening at https://localhost:${server.address().port}`);
+});
+
+// create mongodb connection
+await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/gitahelp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
 });
 
 // Chat stuff VVV
