@@ -6,12 +6,12 @@ const User = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    password: { type: String, required: true, },
     points: {
         type: Number,
         required: true,
         default: 0,
     },
+    completedVideos: mongoose.Schema.Types.Array,
 });
 
 
