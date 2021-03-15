@@ -1,6 +1,9 @@
-import express from 'express';
+import { Router } from 'express';
+import api from './api/index.js';
 
-const router = express.Router();
+const router = Router();
+
+router.use('/api', api);
 
 router.get('/', function(req, res, next) {
     res.json({ 'hello': 'world' });

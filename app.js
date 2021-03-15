@@ -13,7 +13,7 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', routes);
+app.use('/', routes);
 
 const server = app.listen(process.env.PORT || port, () => {
     console.log(`App listening at https://localhost:${server.address().port}`);
