@@ -1,4 +1,4 @@
-const videos = [
+const Video = [
     {
         title: "Lecture 1",
         link: "https://www.youtube.com/watch?v=Xj_mciUH7Z4"
@@ -6,7 +6,7 @@ const videos = [
 ];
 
 // add ids to all the videos based on their titles
-videos.forEach((video) => {
+Video.forEach((video) => {
     // replace spaces in lowercased title with hyphens
     video.id = 
     video.title
@@ -16,4 +16,4 @@ videos.forEach((video) => {
     .join('-');
 });
 
-export default videos;
+export default Video;
