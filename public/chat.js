@@ -8,14 +8,19 @@ class Message { // This is an object for the message
 }
 
 let userID; // User data
-let messages; // messages
+//let messages; // messages
 
 socket.on('userInfo', function (data) { // Recieves user info sent by server 
     userID = data;
 }); 
 socket.on('updateMessage', function (msgs) {
-    messages = msgs;
+    var messages = "";
+    msgs.forEach(element => {
+        messages += element + "\n";
+    });
+    document.messageArea.messageOutput.value = messages;
 });
+
 function sendMessage(messageArg) { // Sends message to server with the string messageArg
     socket.emit('sendMessage', new Message(messageArg, userID, Date()));
 }
