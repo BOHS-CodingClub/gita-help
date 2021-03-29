@@ -42,7 +42,8 @@ io.on('connection', function (socket) { // When a user connects VVV
         { 'name': socket.name }
     ); 
     socket.on('sendMessage', function (arg) { // recieves sent messages from client
-        messages.push(arg.message);
+        arg.sentBy = socket.name;
+        messages.push(arg);
     }); 
     socket.on('disconnect', function () { // removes disconnected users from the list
         users[socket.id] = {}; 

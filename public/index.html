@@ -5,11 +5,11 @@
     </head>
 
     <body>
-        Hello World
         <form name="messageArea">
             <textarea name="messageOutput" id="outputField" rows="20" cols="20"></textarea>
+            <textarea name="messageInput" id="inputField" rows="20" cols="20"></textarea>
             <input type="button" name="btnPress" value="Send"
-                onclick="sendMessage('Test')" />
+                onclick="sendMessageFromInput()" />
         </form>
     </body>
     <footer>
