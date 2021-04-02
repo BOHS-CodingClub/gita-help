@@ -1,8 +1,12 @@
 const Video = [
     {
-        title: "Lecture 1",
-        link: "https://www.youtube.com/watch?v=Xj_mciUH7Z4"
-    }
+        title: 'Lecture 2',
+        code: '2JyI-9BtHg0',
+    },
+    {
+        title: 'Lecture 1',
+        code: 'Xj_mciUH7Z4',
+    },
 ];
 
 // add ids to all the videos based on their titles
