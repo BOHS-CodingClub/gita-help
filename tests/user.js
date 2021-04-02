@@ -8,7 +8,9 @@ await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/gitahelp', 
     useCreateIndex: true,
 });
 
-User.insertMany({
+await User.insertMany({
     username: 'test',
     points: 5
 });
+
+mongoose.connection.close();
