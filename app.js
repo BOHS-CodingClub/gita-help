@@ -5,6 +5,7 @@ import path from 'path';
 import http from 'http';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
+import Message from './models/Message.js';
 
 const __dirname = path.resolve(path.dirname(''));
 
@@ -29,21 +30,21 @@ await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/gitahelp', 
 // Chat stuff VVV
 const io = new Server(server);
 let users = {}; // << List of all active users
-let messages = [];
+let messages = []; // << List of all messages
 setInterval(() => {
-    io.emit('updateMessage' , messages);
+    io.emit('updateMessage' , messages); // Updates messages to each client
 }, 100);
-io.on('connection', function (socket) { // When a user connects VVV
-    socket.name = "User" + socket.id; // Assigns the user an ID based on the order they joined
-    users[socket.id] = { // Pushes info to the array of active users
+io.on('connection', function (socket) { // When a client connects VVV
+    socket.name = "User" + socket.id; // Assigns the client an ID
+    users[socket.id] = { // Pushes client's info to the array of active users
         name: socket.name
     }; 
     io.emit('userInfo', // sends the username to the client
         { 'name': socket.name }
     ); 
     socket.on('sendMessage', function (arg) { // recieves sent messages from client
-        arg.sentBy = socket.name;
-        messages.push(arg);
+        let theMessage = new Message(arg, socket.name, new Date());
+        messages.push(theMessage);
     }); 
     socket.on('disconnect', function () { // removes disconnected users from the list
         users[socket.id] = {}; 

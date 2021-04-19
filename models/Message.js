@@ -5,4 +5,4 @@ class Message { // This is an object for the message
         this.timeSent = timeSent;
     }
 }
-module.exports = Message;
+export default Message;
